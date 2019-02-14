@@ -1,0 +1,11 @@
+com.epitech.mylittlebike
+com.epitech.mylittlebike.championship.controller
+com.epitech.mylittlebike.championship.model
+com.epitech.mylittlebike.championship.repository
+com.epitech.mylittlebike.championship.service
+com.epitech.mylittlebike.championship_results.services
+com.epitech.mylittlebike.security
+com.epitech.mylittlebike.user.controller
+com.epitech.mylittlebike.user.model
+com.epitech.mylittlebike.user.repository
+com.epitech.mylittlebike.user.service
