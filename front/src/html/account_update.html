@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Paramètres du compte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/create_championship.css">
+    <script type="text/javascript" src="../js/home.js"></script>
+    <script type="text/javascript" src="../js/account_update.js"></script>
+</head>
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+    body, html {
+        height: 100%;
+        line-height: 1.8;
+    }
+
+    .w3-bar .w3-button {
+        padding: 16px;
+    }
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="#home" class="w3-bar-item w3-button w3-wide" onclick="goToHome()">Ma petite Moto</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+            <a class="w3-bar-item w3-button " onclick="goToCreateChampionship()">CREER UN CHAMPIONNAT</a>
+            <a class="w3-bar-item w3-button " onclick="goToCurrentChampionships()">CHAMPIONNATS EN COURS</a>
+            <a class="w3-bar-item w3-button" onclick="goToResults()">RESULTATS OFFICIELS DU MOTOGP</a>
+            <a class="w3-bar-item w3-button" onclick="goToBiographies()">BIOGRAPHIES</a>
+            <img src="" alt="Avatar" class="avatar" id="userAvatar" onclick="goToSettings()">
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <img src="" alt="Avatar" class="avatar" id="userAvatar2" onclick="goToSettings()">
+    <a class="w3-bar-item w3-button " onclick="goToCreateChampionship()">CREER UN CHAMPIONNAT</a>
+    <a class="w3-bar-item w3-button " onclick="goToCurrentChampionships()">CHAMPIONNATS EN COURS</a>
+    <a class="w3-bar-item w3-button" onclick="goToResults()">RESULTATS OFFICIELS DU MOTOGP</a>
+    <a class="w3-bar-item w3-button" onclick="goToBiographies()">BIOGRAPHIES</a>
+</nav>
+
+<!-- friendList Section -->
+<div class="w3-container" style="padding:128px 16px">
+    <h1>Mettre à jour mes infos</h1>
+    <div class="card-body">
+        <form>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input id="registerPassword" type="password" class="form-control" placeholder="Mot de passe*" minlength="5" autocomplete="off">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input id="registerConfirmPassword" type="password" class="form-control" placeholder="Confirmez votre mot de passe*" minlength="5" autocomplete="off">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input id="registerFirstName" type="text" class="form-control" placeholder="Prénom" autocomplete="off">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input id="registerLastName" type="text" class="form-control" placeholder="Nom de famille" autocomplete="off">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                </div>
+                <input id="registerPhoneNumber" type="text" class="form-control" placeholder="Numéro de téléphone" autocomplete="off">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-image"></i></span>
+                </div>
+                <input id="registerPicture" type="text" class="form-control" placeholder="URL de votre image de profil" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input type="button" value="Mettre à jour mes informations" class="btn float-right login_btn" onclick="update()">
+            </div>
+        </form>
+    </div>
+    <h2>Liste d'amis</h2>
+    <span>
+        <input type="text" placeholder="Nom d'utilisateur" autocomplete="off" id="friendName">
+        <button type="button" value="Ajouter un ami" onclick="addFriend()">Ajouter un ami</button><br>
+    </span>
+    <nav class="scrollableList">
+        <ul class="w3-ul w3-card-4" id="friendList" style="width: 500px;">
+        </ul>
+    </nav>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+    <div class="w3-xlarge w3-section">
+        <i class="fab fa-facebook-official w3-hover-opacity"></i>
+        <i class="fab fa-instagram w3-hover-opacity"></i>
+        <i class="fab fa-snapchat w3-hover-opacity"></i>
+        <i class="fab fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fab fa-twitter w3-hover-opacity"></i>
+        <i class="fab fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <p>Fait par <a href="https://www.linkedin.com/in/aziz-chigri-198709140" title="Author" target="_blank" class="w3-hover-text-green">Aziz Chigri</a></p>
+</footer>
+
+<script>
+    getUserInfo();
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+
+</script>
+
+</body>
+</html>
